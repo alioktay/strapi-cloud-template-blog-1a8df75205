@@ -1,0 +1,29 @@
+{
+  "collectionName": "age_group_range",
+  "info": {
+    "displayName": "Age Group Range",
+    "description": "Defines an age group with birth year range",
+    "icon": "user",
+    "name": "age-group-range"
+  },
+  "options": {},
+  "attributes": {
+    "age_group": {
+      "type": "enumeration",
+      "enum": [
+        "U11",
+        "U13",
+        "U15",
+        "U17",
+        "U19",
+        "U21"
+      ]
+    },
+    "birth_year_from": {
+      "type": "integer"
+    },
+    "birth_year_to": {
+      "type": "integer"
+    }
+  }
+}

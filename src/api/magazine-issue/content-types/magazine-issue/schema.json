@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "magazine_issues",
+  "info": {
+    "singularName": "magazine-issue",
+    "pluralName": "magazine-issues",
+    "displayName": "Magazine Issue",
+    "description": "MagazineIssue content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "publication_date": {
+      "type": "date"
+    },
+    "file": {
+      "type": "media"
+    },
+    "season": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::season.season"
+    },
+    "pdf_link": {
+      "type": "string"
+    }
+  }
+}

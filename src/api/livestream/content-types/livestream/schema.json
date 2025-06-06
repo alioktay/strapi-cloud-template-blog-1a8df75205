@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "livestreams",
+  "info": {
+    "singularName": "livestream",
+    "pluralName": "livestreams",
+    "displayName": "Livestream",
+    "description": "Livestream content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "YouTube",
+        "Twitch",
+        "Vimeo",
+        "Other"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "event_date": {
+      "type": "datetime"
+    },
+    "related_tournament": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tournament.tournament"
+    }
+  }
+}

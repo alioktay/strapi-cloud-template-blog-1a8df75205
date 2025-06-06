@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rule_documents",
+  "info": {
+    "singularName": "rule-document",
+    "pluralName": "rule-documents",
+    "displayName": "Rule Document",
+    "description": "RuleDocument content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Jugend",
+        "Allgemein",
+        "Spielordnung"
+      ]
+    },
+    "season": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::season.season"
+    },
+    "file": {
+      "type": "media"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

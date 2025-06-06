@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_articles",
+  "info": {
+    "singularName": "news-article",
+    "pluralName": "news-articles",
+    "displayName": "News Article",
+    "description": "NewsArticle content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Registration",
+        "Rule",
+        "Tournament",
+        "Magazine",
+        "Event"
+      ]
+    },
+    "highlighted": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seasons",
+  "info": {
+    "singularName": "season",
+    "pluralName": "seasons",
+    "displayName": "Season",
+    "description": "Season content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "is_current": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

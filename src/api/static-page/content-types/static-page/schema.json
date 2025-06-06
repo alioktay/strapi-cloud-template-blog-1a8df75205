@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "static_pages",
+  "info": {
+    "singularName": "static-page",
+    "pluralName": "static-pages",
+    "displayName": "Static Page",
+    "description": "StaticPage content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

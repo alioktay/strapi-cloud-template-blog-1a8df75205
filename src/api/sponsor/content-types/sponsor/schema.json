@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sponsors",
+  "info": {
+    "singularName": "sponsor",
+    "pluralName": "sponsors",
+    "displayName": "Sponsor",
+    "description": "Sponsor content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

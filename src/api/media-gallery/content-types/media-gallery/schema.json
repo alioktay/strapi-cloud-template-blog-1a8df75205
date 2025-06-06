@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_galleries",
+  "info": {
+    "singularName": "media-gallery",
+    "pluralName": "media-galleries",
+    "displayName": "Media Gallery",
+    "description": "MediaGallery content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.media-item"
+    }
+  }
+}

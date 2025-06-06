@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_registration_forms",
+  "info": {
+    "singularName": "team-registration-form",
+    "pluralName": "team-registration-forms",
+    "displayName": "Team Registration Form",
+    "description": "TeamRegistrationForm content type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "season": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::season.season"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "download_file": {
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "external_link": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
