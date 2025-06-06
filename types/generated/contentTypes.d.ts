@@ -643,6 +643,70 @@ export interface ApiMediaGalleryMediaGallery
   };
 }
 
+export interface ApiMenuItemMenuItem extends Struct.CollectionTypeSchema {
+  collectionName: 'menu_items';
+  info: {
+    description: 'Defines a menu item for navigation';
+    displayName: 'Menu Item';
+    pluralName: 'menu-items';
+    singularName: 'menu-item';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    children: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::menu-item.menu-item'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    external_url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::menu-item.menu-item'
+    >;
+    menu_order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    page: Schema.Attribute.Relation<'oneToOne', 'api::static-page.static-page'>;
+    parent: Schema.Attribute.Relation<'manyToOne', 'api::menu-item.menu-item'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visible: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ApiNewsArticleNewsArticle extends Struct.CollectionTypeSchema {
   collectionName: 'news_articles';
   info: {
@@ -781,7 +845,7 @@ export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
 export interface ApiStaticPageStaticPage extends Struct.CollectionTypeSchema {
   collectionName: 'static_pages';
   info: {
-    description: 'StaticPage content type';
+    description: 'Static page content with optional nesting';
     displayName: 'Static Page';
     pluralName: 'static-pages';
     singularName: 'static-page';
@@ -801,8 +865,8 @@ export interface ApiStaticPageStaticPage extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
-    title: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1445,6 +1509,7 @@ declare module '@strapi/strapi' {
       'api::livestream.livestream': ApiLivestreamLivestream;
       'api::magazine-issue.magazine-issue': ApiMagazineIssueMagazineIssue;
       'api::media-gallery.media-gallery': ApiMediaGalleryMediaGallery;
+      'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::news-article.news-article': ApiNewsArticleNewsArticle;
       'api::rule-document.rule-document': ApiRuleDocumentRuleDocument;
       'api::season.season': ApiSeasonSeason;
